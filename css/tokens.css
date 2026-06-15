@@ -1,0 +1,66 @@
+/* ==========================================================================
+   KREEP — Design Tokens
+   These map 1:1 to Figma Color Styles, Text Styles & spacing variables.
+   Use the comment labels as the Style names when rebuilding in Figma.
+   ========================================================================== */
+
+:root {
+  /* ---- Color Styles ---------------------------------------------------- */
+  --c-dusty-pink: #d6a5a5;   /* Brand/Dusty Pink   */
+  --c-olive-gray: #89857f;   /* Brand/Warm Gray    */
+  --c-black:      #000000;   /* Base/Black         */
+  --c-white:      #ffffff;   /* Base/White         */
+
+  /* Derived surface tints (kept inside the palette family) */
+  --c-ink-900:    #0a0a0a;
+  --c-ink-800:    #141414;
+  --c-ink-700:    #1c1c1c;
+  --c-line:       rgba(255, 255, 255, 0.10);
+  --c-line-dark:  rgba(0, 0, 0, 0.12);
+  --c-pink-soft:  rgba(214, 165, 165, 0.14);
+  --c-pink-line:  rgba(214, 165, 165, 0.40);
+  --c-olive-soft: rgba(137, 133, 127, 0.16);
+
+  /* Status colors (derived from palette, used for community tags) */
+  --c-live:    #d6a5a5;
+  --c-voting:  #89857f;
+  --c-new:     #ffffff;
+
+  /* ---- Typography ------------------------------------------------------ */
+  --font-display: "Bebas Neue", "Arial Narrow", sans-serif; /* Display     */
+  --font-body:    "Inter", system-ui, -apple-system, sans-serif; /* Body    */
+  --font-mono:    "Space Mono", "Courier New", monospace;   /* Label/Tag   */
+
+  /* Text Styles — size / line-height / tracking */
+  --t-display-xl: 700 clamp(4rem, 14vw, 11rem)/0.86 var(--font-display);
+  --t-display-l:  700 clamp(2.6rem, 6vw, 5rem)/0.9 var(--font-display);
+  --t-display-m:  700 clamp(1.8rem, 3.4vw, 2.8rem)/0.95 var(--font-display);
+  --t-heading:    600 1.125rem/1.3 var(--font-body);
+  --t-body:       400 1rem/1.6 var(--font-body);
+  --t-body-sm:    400 0.875rem/1.55 var(--font-body);
+  --t-label:      400 0.75rem/1.4 var(--font-mono);
+
+  /* ---- Spacing scale (8pt-ish) ---------------------------------------- */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+
+  /* ---- Radius & elevation --------------------------------------------- */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  --shadow-card: 0 18px 40px -20px rgba(0, 0, 0, 0.6);
+  --shadow-float: 0 30px 60px -25px rgba(0, 0, 0, 0.7);
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --maxw: 1280px;
+  --nav-h: 72px;
+}

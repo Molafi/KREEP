@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KREEP — Creator Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="nav-logo" href="index.html">KREE<span class="k-glitch glitch" data-text="P">P</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#arrivals">Shop</a>
+        <a href="studio.html" class="active">Creator Studio</a>
+        <a href="product.html">Community</a>
+        <a href="index.html#loop">About</a>
+      </nav>
+      <div class="nav-right">
+        <button class="cart-btn">Cart <span class="count">3</span></button>
+        <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap studio">
+    <div class="studio-head">
+      <div>
+        <p class="mono eyebrow">// Creator Studio</p>
+        <h1 class="display-m">Build Your <span class="glitch" data-text="DROP">DROP</span></h1>
+      </div>
+      <p class="mono muted">Autosaved · Draft #KRP-DRAFT-0091</p>
+    </div>
+
+    <div class="studio-layout">
+
+      <!-- ===== LEFT PANEL — garment / color / fabric / size / layers ===== -->
+      <aside class="panel">
+        <div class="group">
+          <h3>Garment</h3>
+          <div class="chip-row">
+            <button class="design-chip active">Hoodie</button>
+            <button class="design-chip">Tee</button>
+            <button class="design-chip">Crewneck</button>
+            <button class="design-chip">Cargo</button>
+            <button class="design-chip">Cap</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>Color</h3>
+          <div class="chip-row">
+            <button class="design-chip active"><span class="swatch" style="background:var(--c-dusty-pink)"></span>Dusty Pink</button>
+            <button class="design-chip"><span class="swatch" style="background:var(--c-olive-gray)"></span>Olive Gray</button>
+            <button class="design-chip"><span class="swatch" style="background:#000;border-color:#444"></span>Black</button>
+            <button class="design-chip"><span class="swatch" style="background:#fff"></span>White</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>Fabric</h3>
+          <div class="chip-row">
+            <button class="design-chip active">Heavy Cotton 380gsm</button>
+            <button class="design-chip">French Terry</button>
+            <button class="design-chip">Organic Blend</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>Size</h3>
+          <div class="chip-row">
+            <button class="design-chip">XS</button>
+            <button class="design-chip">S</button>
+            <button class="design-chip active">M</button>
+            <button class="design-chip">L</button>
+            <button class="design-chip">XL</button>
+            <button class="design-chip">XXL</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>Layers</h3>
+          <ul class="layers">
+            <li class="layer active"><span>◆ Text — “VISION”</span><span class="mono">👁</span></li>
+            <li class="layer"><span>▦ Base Garment</span><span class="mono">👁</span></li>
+            <li class="layer"><span>✦ Graphic — Glitch K</span><span class="mono">👁</span></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- ===== CENTER CANVAS — stage / toolbar / multi-angle ===== -->
+      <section class="canvas">
+        <div class="toolbar">
+          <button class="tool active" title="Select">⬚</button>
+          <button class="tool" title="Add text">T</button>
+          <button class="tool" title="Upload graphic">⤒</button>
+          <button class="tool" title="Glitch FX" id="glitchTool">⚡</button>
+          <button class="tool" title="Align">≡</button>
+          <span class="spacer"></span>
+          <button class="tool" title="Undo">↺</button>
+          <button class="tool" title="Redo">↻</button>
+          <button class="tool" title="Zoom">⊕</button>
+        </div>
+
+        <div class="stage" id="stage">
+          <div class="ph ph-pink"></div>
+          <div class="draggable selected" id="dragText"><span class="glitch" data-text="VISION">VISION</span></div>
+        </div>
+
+        <div class="angles">
+          <button class="angle active" title="Front"><div class="ph ph-pink"></div></button>
+          <button class="angle" title="Back"><div class="ph ph-olive"></div></button>
+          <button class="angle" title="Left"><div class="ph ph-dark"></div></button>
+          <button class="angle" title="Detail"><div class="ph ph-mix"></div></button>
+        </div>
+      </section>
+
+      <!-- ===== RIGHT PANEL — text editor / fonts / sliders / price / royalty ===== -->
+      <aside class="panel">
+        <div class="group">
+          <h3>Text</h3>
+          <div class="field">
+            <label for="txt">Your text</label>
+            <input type="text" id="txt" value="VISION" />
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>Font</h3>
+          <div class="font-grid">
+            <button class="font-opt active" style="font-family:var(--font-display)">Bebas<small>Display</small></button>
+            <button class="font-opt" style="font-family:var(--font-body)">Inter<small>Body</small></button>
+            <button class="font-opt" style="font-family:var(--font-mono)">Mono<small>Tag</small></button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>Size &amp; Spacing</h3>
+          <div class="field">
+            <label>Font size</label>
+            <div class="range-row"><input type="range" min="24" max="120" value="72" id="rngSize" /><span class="val" id="valSize">72px</span></div>
+          </div>
+          <div class="field">
+            <label>Letter spacing</label>
+            <div class="range-row"><input type="range" min="-4" max="20" value="2" id="rngSpace" /><span class="val" id="valSpace">2px</span></div>
+          </div>
+          <div class="field">
+            <label>Rotation</label>
+            <div class="range-row"><input type="range" min="-45" max="45" value="0" id="rngRot" /><span class="val" id="valRot">0°</span></div>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>Price Summary</h3>
+          <div class="price-summary">
+            <div class="line"><span>Base — Hoodie (380gsm)</span><span>$88.00</span></div>
+            <div class="line"><span>Custom print</span><span>$18.00</span></div>
+            <div class="line"><span>Glitch FX layer</span><span>$6.00</span></div>
+            <div class="line total"><span>Total</span><span>$112</span></div>
+          </div>
+          <div class="royalty-notice">
+            <span>⚑</span>
+            <p style="margin:0">If your design wins the community vote and drops, you earn a <strong>12% royalty</strong> on every unit sold. Designs stay credited to you forever.</p>
+          </div>
+        </div>
+
+        <div class="studio-actions">
+          <button class="btn btn-primary btn-block">Submit to Community Vote →</button>
+          <button class="btn btn-ghost btn-block">Order for Myself · $112</button>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

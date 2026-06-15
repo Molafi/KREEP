@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KREEP — Glitch Hoodie · Product</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="nav-logo" href="index.html">KREE<span class="k-glitch glitch" data-text="P">P</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#arrivals">Shop</a>
+        <a href="studio.html">Creator Studio</a>
+        <a href="product.html" class="active">Community</a>
+        <a href="index.html#loop">About</a>
+      </nav>
+      <div class="nav-right">
+        <button class="cart-btn">Cart <span class="count">3</span></button>
+        <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Product Detail ===================== -->
+  <main class="wrap pdp">
+    <div class="pdp-grid">
+
+      <!-- Gallery -->
+      <div class="gallery">
+        <div class="main"><div class="ph ph-pink" id="mainImg"></div></div>
+        <div class="thumbs">
+          <button class="thumb active" data-ph="ph-pink"><div class="ph ph-pink"></div></button>
+          <button class="thumb" data-ph="ph-olive"><div class="ph ph-olive"></div></button>
+          <button class="thumb" data-ph="ph-dark"><div class="ph ph-dark"></div></button>
+          <button class="thumb" data-ph="ph-mix"><div class="ph ph-mix"></div></button>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="pdp-info">
+        <p class="mono crumb">Shop / Outerwear / KRP-007</p>
+        <h1>Glitch <span class="glitch" data-text="Hoodie">Hoodie</span></h1>
+        <div class="pdp-price">$128.00</div>
+
+        <!-- CreatorBadge + royalty badge -->
+        <div class="pdp-creator">
+          <div class="creator-badge">
+            <div class="avatar"></div>
+            <div class="info">
+              <span class="name">@ramy.designs</span>
+              <span class="royalty">Community Creator</span>
+            </div>
+          </div>
+          <span class="royalty-badge">⚑ 12% Royalty</span>
+        </div>
+
+        <p class="pdp-desc">A community-designed heavyweight hoodie in dusty pink. The deconstructed glitch-K graphic runs across the back — born in the Creator Studio, voted to the top by 4,200+ members, now dropping. 380gsm brushed cotton.</p>
+
+        <label class="mono muted">Select size</label>
+        <div class="size-row">
+          <button class="size">XS</button>
+          <button class="size">S</button>
+          <button class="size active">M</button>
+          <button class="size">L</button>
+          <button class="size soldout">XL</button>
+          <button class="size">XXL</button>
+        </div>
+
+        <div class="pdp-buy">
+          <button class="btn btn-primary btn-block">Add to Cart — $128</button>
+          <button class="btn btn-ghost" title="Save">♡</button>
+        </div>
+
+        <div class="specs">
+          <div class="row"><span>SKU</span><span>KRP-007-PNK</span></div>
+          <div class="row"><span>Fabric</span><span>380GSM BRUSHED COTTON</span></div>
+          <div class="row"><span>Fit</span><span>OVERSIZED / UNISEX</span></div>
+          <div class="row"><span>Edition</span><span>DROP 04 · LIMITED</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== Community Designs Gallery ===================== -->
+    <section class="section" id="community">
+      <div class="section-head">
+        <div>
+          <p class="mono eyebrow">// Community Designs</p>
+          <h2 class="display-l">Vote The Next Drop</h2>
+        </div>
+        <a href="studio.html" class="btn btn-ghost">Submit yours →</a>
+      </div>
+
+      <div class="grid-community">
+
+        <!-- CommunityCard — Live -->
+        <article class="community-card">
+          <div class="media"><div class="ph ph-pink"></div><span class="status live">Live</span></div>
+          <div class="body">
+            <div class="creator-badge"><div class="avatar"></div><div class="info"><span class="name">@noor.k</span><span class="royalty">12% royalty</span></div></div>
+            <h4 class="title">Reconstruct Crew</h4>
+            <div class="vote">
+              <div class="vote-bar"><span style="width:88%"></span></div>
+              <div class="row"><span>88% approval</span><span>4.2k votes</span></div>
+            </div>
+            <button class="btn btn-pink btn-block">Shop Now</button>
+          </div>
+        </article>
+
+        <!-- CommunityCard — Voting -->
+        <article class="community-card">
+          <div class="media"><div class="ph ph-olive"></div><span class="status voting">Voting</span></div>
+          <div class="body">
+            <div class="creator-badge"><div class="avatar"></div><div class="info"><span class="name">@deenz</span><span class="royalty">12% royalty</span></div></div>
+            <h4 class="title">Olive Static Tee</h4>
+            <div class="vote">
+              <div class="vote-bar"><span style="width:64%"></span></div>
+              <div class="row"><span>64% approval</span><span>2.7k votes</span></div>
+            </div>
+            <button class="btn btn-ghost btn-block">↑ Vote Up</button>
+          </div>
+        </article>
+
+        <!-- CommunityCard — Voting -->
+        <article class="community-card">
+          <div class="media"><div class="ph ph-mix"></div><span class="status voting">Voting</span></div>
+          <div class="body">
+            <div class="creator-badge"><div class="avatar"></div><div class="info"><span class="name">@sora.fits</span><span class="royalty">12% royalty</span></div></div>
+            <h4 class="title">Loop Cargo</h4>
+            <div class="vote">
+              <div class="vote-bar"><span style="width:51%"></span></div>
+              <div class="row"><span>51% approval</span><span>1.9k votes</span></div>
+            </div>
+            <button class="btn btn-ghost btn-block">↑ Vote Up</button>
+          </div>
+        </article>
+
+        <!-- CommunityCard — New -->
+        <article class="community-card">
+          <div class="media"><div class="ph ph-dark"></div><span class="status new">New</span></div>
+          <div class="body">
+            <div class="creator-badge"><div class="avatar"></div><div class="info"><span class="name">@mteam</span><span class="royalty">12% royalty</span></div></div>
+            <h4 class="title">Glitch Beanie</h4>
+            <div class="vote">
+              <div class="vote-bar"><span style="width:22%"></span></div>
+              <div class="row"><span>22% approval</span><span>410 votes</span></div>
+            </div>
+            <button class="btn btn-ghost btn-block">↑ Vote Up</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <div class="logo">KREEP</div>
+          <p class="muted" style="max-width:34ch">Streetwear built by its community. Co-create, vote, and own the culture.</p>
+        </div>
+        <div><h5>Shop</h5><div class="links"><a href="#">New Arrivals</a><a href="#">Tops</a><a href="#">Outerwear</a><a href="#">Accessories</a></div></div>
+        <div><h5>Community</h5><div class="links"><a href="studio.html">Creator Studio</a><a href="product.html">Gallery</a><a href="#">Voting</a><a href="#">Royalties</a></div></div>
+        <div>
+          <h5>Join the loop</h5>
+          <form class="news" onsubmit="return false"><input type="email" placeholder="your@email.com" aria-label="Email" /><button type="submit">Join</button></form>
+          <p class="mono muted" style="margin-top:.8rem">// Get early drop access</p>
+        </div>
+      </div>
+      <div class="bottom mono"><span>© 2026 KREEP — ALL RIGHTS RESERVED</span><span>IG · TT · X · DISCORD</span></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
