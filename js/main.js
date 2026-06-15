@@ -196,4 +196,38 @@
       links.style.borderBottom = "1px solid var(--c-line)";
     });
   });
+
+  /* ---- Cart dropdown toggle -------------------------------------------- */
+  document.querySelectorAll(".cart-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const dropdown = btn.parentElement.querySelector(".cart-dropdown");
+      if (!dropdown) return;
+      // Close all other dropdowns first
+      document.querySelectorAll(".cart-dropdown.open").forEach((d) => {
+        if (d !== dropdown) d.classList.remove("open");
+      });
+      dropdown.classList.toggle("open");
+    });
+  });
+
+  // Close cart dropdown on outside click
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".cart-dropdown") && !e.target.closest(".cart-btn")) {
+      document.querySelectorAll(".cart-dropdown.open").forEach((d) => d.classList.remove("open"));
+    }
+  });
+
+  // Cart quantity buttons
+  document.querySelectorAll(".cart-dropdown__qty-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const valEl = btn.parentElement.querySelector(".cart-dropdown__qty-val");
+      if (!valEl) return;
+      let val = parseInt(valEl.textContent, 10) || 1;
+      if (btn.dataset.action === "plus") val++;
+      else if (btn.dataset.action === "minus" && val > 1) val--;
+      valEl.textContent = val;
+    });
+  });
 })();
