@@ -1,0 +1,7 @@
+{
+  "task_id": "task-add-pages-voting",
+  "task_description": "Create 6 new pages (royalties, voting, tops, outerwear, accessories, arrivals), implement Vote Up functionality, update all navigation links, and include Hoodie/Polo Shirt/T-shirt products with size inventory.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001"],
+  "blocked_reason": null
+}

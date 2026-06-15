@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KREEP — Wear Your Vision</title>
-  <meta name="description" content="KREEP — streetwear built by its community. Co-create, vote, earn royalties." />
+  <title>KREEP — Tops</title>
+  <meta name="description" content="KREEP — Shop T-shirts and Polo Shirts from the community." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -14,7 +14,7 @@
 </head>
 <body>
 
-  <!-- ====================== Navbar (persistent) ====================== -->
+  <!-- Navbar -->
   <header class="nav">
     <div class="wrap">
       <a class="nav-logo glitch" data-text="KREEP" href="index.html">
@@ -30,15 +30,14 @@
         </svg>
       </a>
       <nav class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="#arrivals">Shop</a>
+        <a href="index.html">Home</a>
+        <a href="arrivals.html" class="active">Shop</a>
         <a href="studio.html">Creator Studio</a>
         <a href="product.html">Community</a>
-        <a href="#loop">About</a>
+        <a href="index.html#loop">About</a>
       </nav>
       <div class="nav-right">
         <button class="cart-btn">Cart <span class="count">3</span></button>
-        <!-- Cart Dropdown -->
         <div class="cart-dropdown" id="cartDropdown">
           <div class="cart-dropdown__header">
             <span class="mono">Your Cart (3)</span>
@@ -91,124 +90,27 @@
     </div>
   </header>
 
-  <!-- ====================== Hero ====================== -->
-  <section class="hero section hero--gradient">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <div class="hero-logo-wrap glitch" data-text="KREEP">
-          <svg class="kreep-logo kreep-logo--hero" viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg" aria-label="KREEP">
-            <g class="logo-icon" transform="translate(2,4)">
-              <path d="M4 0 L4 40 L12 40 L12 24 L20 40 L28 40 L18 20 L28 0 L20 0 L12 16 L12 0 Z" fill="#89857f"/>
-              <path d="M10 14 Q18 20 10 28 Q22 24 18 16 Q14 10 10 14Z" fill="#D6A5A5" opacity="0.85"/>
-              <ellipse cx="15" cy="20" rx="5" ry="8" fill="none" stroke="#D6A5A5" stroke-width="1.2" opacity="0.6" transform="rotate(-15 15 20)"/>
-            </g>
-            <text x="38" y="35" font-family="Bebas Neue, Arial Narrow, sans-serif" font-size="34" font-weight="700" letter-spacing="2">
-              <tspan fill="#ffffff">KR</tspan><tspan fill="#D6A5A5">E</tspan><tspan fill="#ffffff">EP</tspan>
-            </text>
-          </svg>
-        </div>
-        <p class="mono eyebrow">Drop 04 — Community Built</p>
-        <h1 class="display-xl">
-          WEAR<br />
-          YOUR<br />
-          <span class="glitch hero-glitch" data-text="VISION">VISION</span>
-        </h1>
-        <p class="hero-sub">Streetwear designed by the people who wear it. Submit a design, let the community vote, and earn royalties when it drops.</p>
-        <div class="hero-cta">
-          <a href="studio.html" class="btn btn-primary">Start Creating →</a>
-          <a href="#arrivals" class="btn btn-ghost">Shop the Drop</a>
-        </div>
-        <p class="mono muted hero-note">// 2,481 designs submitted this season</p>
-      </div>
-
-      <div class="hero-visual">
-        <article class="float-card f1 product-card">
-          <div class="media"><div class="ph ph-pink"></div></div>
-          <span class="sku">SKU·KRP-007</span>
-          <div class="meta"><div><h4>Glitch Hoodie</h4><span class="cat">Outerwear</span></div><span class="price">$128</span></div>
-        </article>
-        <article class="float-card f2 product-card">
-          <div class="media"><div class="ph ph-olive"></div></div>
-          <span class="sku">SKU·KRP-012</span>
-          <div class="meta"><div><h4>Static Tee</h4><span class="cat">Tops</span></div><span class="price">$64</span></div>
-        </article>
-        <article class="float-card f3 product-card">
-          <div class="media"><div class="ph ph-mix"></div></div>
-          <span class="sku">SKU·KRP-021</span>
-          <div class="meta"><div><h4>Loop Cargo</h4><span class="cat">Bottoms</span></div><span class="price">$142</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================== Stats row ====================== -->
-  <section class="stats">
-    <div class="wrap stats-grid">
-      <div class="stat"><span class="num" data-count="48200">0</span><span class="mono muted">Community members</span></div>
-      <div class="stat"><span class="num" data-count="2481">0</span><span class="mono muted">Designs this season</span></div>
-      <div class="stat"><span class="num" data-count="312">0</span><span class="mono muted">Creators paid</span></div>
-      <div class="stat"><span class="num" data-prefix="$" data-count="184">0</span><span class="mono muted">K in royalties</span></div>
-    </div>
-  </section>
-
-  <!-- ====================== Ticker ====================== -->
-  <div class="ticker" aria-hidden="true">
-    <div class="track">
-      <span>COMMUNITY OWNED</span><span>CO-CREATED</span><span>VOTE TO DROP</span><span>EARN ROYALTIES</span><span>NO MIDDLEMAN</span>
-      <span>COMMUNITY OWNED</span><span>CO-CREATED</span><span>VOTE TO DROP</span><span>EARN ROYALTIES</span><span>NO MIDDLEMAN</span>
-    </div>
-  </div>
-
-  <!-- ====================== New Arrivals ====================== -->
-  <section class="section" id="arrivals">
+  <!-- Tops -->
+  <section class="section" id="tops">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <p class="mono eyebrow">// New Arrivals</p>
-          <h2 class="display-l">Fresh Off The Loop</h2>
+          <p class="mono eyebrow">// Shop</p>
+          <h2 class="display-l">Tops</h2>
         </div>
-        <a href="arrivals.html" class="btn btn-ghost">View all 48 →</a>
+        <span class="mono muted">T-shirts &amp; Polo Shirts</span>
       </div>
 
       <div class="grid-products">
-        <article class="product-card">
-          <div class="media">
-            <div class="ph ph-dark"></div>
-            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
-          </div>
-          <span class="sku">SKU·KRP-031</span>
-          <div class="meta"><div><h4>Reconstruct Crew</h4><span class="cat">Sweatshirt</span></div><span class="price">$96</span></div>
-          <div class="size-row size-row--card">
-            <span class="size">S</span>
-            <span class="size">M</span>
-            <span class="size">L</span>
-            <span class="size soldout">XL</span>
-            <span class="size">XXL</span>
-          </div>
-        </article>
-        <article class="product-card">
-          <div class="media">
-            <div class="ph ph-pink"></div>
-            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
-          </div>
-          <span class="sku">SKU·KRP-034</span>
-          <div class="meta"><div><h4>Dusty Cargo</h4><span class="cat">Bottoms</span></div><span class="price">$142</span></div>
-          <div class="size-row size-row--card">
-            <span class="size soldout">XS</span>
-            <span class="size">S</span>
-            <span class="size">M</span>
-            <span class="size">L</span>
-            <span class="size soldout">XL</span>
-            <span class="size soldout">XXL</span>
-          </div>
-        </article>
+
+        <!-- 1 -->
         <article class="product-card">
           <div class="media">
             <div class="ph ph-olive"></div>
             <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
           </div>
           <span class="sku">SKU·KRP-038</span>
-          <div class="meta"><div><h4>Olive Static Tee</h4><span class="cat">Tops</span></div><span class="price">$64</span></div>
+          <div class="meta"><div><h4>Olive Static Tee</h4><span class="cat">T-shirt</span></div><span class="price">$64</span></div>
           <div class="size-row size-row--card">
             <span class="size">XS</span>
             <span class="size">S</span>
@@ -218,55 +120,138 @@
             <span class="size">XXL</span>
           </div>
         </article>
+
+        <!-- 2 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-dark"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-045</span>
+          <div class="meta"><div><h4>Midnight Polo</h4><span class="cat">Polo Shirt</span></div><span class="price">$82</span></div>
+          <div class="size-row size-row--card">
+            <span class="size soldout">XS</span>
+            <span class="size">S</span>
+            <span class="size">M</span>
+            <span class="size">L</span>
+            <span class="size soldout">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-dark"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-059</span>
+          <div class="meta"><div><h4>Shadow Tee</h4><span class="cat">T-shirt</span></div><span class="price">$58</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size">S</span>
+            <span class="size">M</span>
+            <span class="size">L</span>
+            <span class="size soldout">XL</span>
+            <span class="size soldout">XXL</span>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-pink"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-055</span>
+          <div class="meta"><div><h4>Fade Polo</h4><span class="cat">Polo Shirt</span></div><span class="price">$78</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size">S</span>
+            <span class="size soldout">M</span>
+            <span class="size">L</span>
+            <span class="size">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-olive"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-079</span>
+          <div class="meta"><div><h4>Raw Hem Tee</h4><span class="cat">T-shirt</span></div><span class="price">$56</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size">S</span>
+            <span class="size soldout">M</span>
+            <span class="size">L</span>
+            <span class="size">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-pink"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-069</span>
+          <div class="meta"><div><h4>Neon Oversize Tee</h4><span class="cat">T-shirt</span></div><span class="price">$62</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size">S</span>
+            <span class="size">M</span>
+            <span class="size">L</span>
+            <span class="size">XL</span>
+            <span class="size soldout">XXL</span>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-olive"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-066</span>
+          <div class="meta"><div><h4>Terrain Polo</h4><span class="cat">Polo Shirt</span></div><span class="price">$76</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size">S</span>
+            <span class="size soldout">M</span>
+            <span class="size soldout">L</span>
+            <span class="size">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+        <!-- 8 -->
         <article class="product-card">
           <div class="media">
             <div class="ph ph-mix"></div>
             <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
           </div>
-          <span class="sku">SKU·KRP-041</span>
-          <div class="meta"><div><h4>Glitch Beanie</h4><span class="cat">Accessories</span></div><span class="price">$38</span></div>
+          <span class="sku">SKU·KRP-083</span>
+          <div class="meta"><div><h4>Distort Polo</h4><span class="cat">Polo Shirt</span></div><span class="price">$80</span></div>
           <div class="size-row size-row--card">
+            <span class="size">XS</span>
             <span class="size soldout">S</span>
             <span class="size">M</span>
-            <span class="size soldout">L</span>
+            <span class="size">L</span>
             <span class="size">XL</span>
+            <span class="size soldout">XXL</span>
           </div>
         </article>
+
       </div>
     </div>
   </section>
 
-  <!-- ====================== Creator Loop ====================== -->
-  <section class="section loop" id="loop">
-    <div class="wrap loop-grid">
-      <div class="loop-copy">
-        <p class="mono eyebrow">// The Creator Loop</p>
-        <h2 class="display-l">Design It.<br />Vote It.<br />Wear It.</h2>
-        <p class="loop-sub">Every piece starts in the Creator Studio. Drop your design, the community votes, and the winners go to production — with you earning royalties on every sale.</p>
-        <ol class="loop-steps">
-          <li><span class="mono">01</span> Build your design in the Studio</li>
-          <li><span class="mono">02</span> Submit it to the community vote</li>
-          <li><span class="mono">03</span> Top designs drop &amp; you earn 12% royalty</li>
-        </ol>
-        <a href="studio.html" class="btn btn-primary">Open Creator Studio →</a>
-      </div>
-      <div class="loop-preview">
-        <div class="studio-mini">
-          <div class="mini-bar"><span></span><span></span><span></span></div>
-          <div class="mini-body">
-            <div class="mini-left">
-              <div class="design-chip active"><span class="swatch" style="background:var(--c-dusty-pink)"></span>Pink</div>
-              <div class="design-chip"><span class="swatch" style="background:var(--c-olive-gray)"></span>Olive</div>
-              <div class="design-chip"><span class="swatch" style="background:#000;border-color:#444"></span>Black</div>
-            </div>
-            <div class="mini-stage"><div class="ph ph-dark"></div><span class="stage-text glitch" data-text="KREEP">KREEP</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================== Footer ====================== -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="wrap">
       <div class="grid">
@@ -292,8 +277,8 @@
         </div>
       </div>
       <div class="bottom mono">
-        <span>© 2026 KREEP — ALL RIGHTS RESERVED</span>
-        <span>IG · TT · X · DISCORD</span>
+        <span>&copy; 2026 KREEP — ALL RIGHTS RESERVED</span>
+        <span>IG &middot; TT &middot; X &middot; DISCORD</span>
       </div>
     </div>
   </footer>

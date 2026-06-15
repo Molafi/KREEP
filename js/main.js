@@ -197,6 +197,53 @@
     });
   });
 
+  /* ---- Vote Up buttons (community cards) -------------------------------- */
+  document.querySelectorAll(".community-card .btn").forEach(function (btn) {
+    if (btn.textContent.indexOf("Vote Up") === -1) return;
+    btn.addEventListener("click", function () {
+      var card = btn.closest(".community-card");
+      if (!card) return;
+      var voteSection = card.querySelector(".vote");
+      if (!voteSection) return;
+      var row = voteSection.querySelector(".row");
+      if (!row) return;
+      var spans = row.querySelectorAll("span");
+      if (spans.length < 2) return;
+
+      // Parse vote count (e.g., "2.7k votes", "410 votes")
+      var voteText = spans[1].textContent.trim();
+      var countMatch = voteText.match(/([\d.]+)(k?)\s*votes/i);
+      if (!countMatch) return;
+      var count = parseFloat(countMatch[1]);
+      if (countMatch[2].toLowerCase() === "k") count = count * 1000;
+
+      // Increment by 1
+      count = Math.round(count) + 1;
+
+      // Format back
+      var formatted;
+      if (count >= 1000) {
+        formatted = (count / 1000).toFixed(1).replace(/\.0$/, "") + "k votes";
+      } else {
+        formatted = count + " votes";
+      }
+      spans[1].textContent = formatted;
+
+      // Update approval percentage (increment slightly)
+      var approvalText = spans[0].textContent.trim();
+      var pctMatch = approvalText.match(/([\d]+)%/);
+      if (pctMatch) {
+        var pct = parseInt(pctMatch[1], 10);
+        if (pct < 99) pct += 1;
+        spans[0].textContent = pct + "% approval";
+
+        // Update the vote-bar width
+        var bar = voteSection.querySelector(".vote-bar span");
+        if (bar) bar.style.width = pct + "%";
+      }
+    });
+  });
+
   /* ---- Cart dropdown toggle -------------------------------------------- */
   document.querySelectorAll(".cart-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {

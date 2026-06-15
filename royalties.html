@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KREEP — Royalties</title>
+  <meta name="description" content="KREEP — Earn 12% royalty on every sale of your community-voted design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="nav-logo glitch" data-text="KREEP" href="index.html">
+        <svg class="kreep-logo kreep-logo--nav" viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg" aria-label="KREEP">
+          <g class="logo-icon" transform="translate(2,4)">
+            <path d="M4 0 L4 40 L12 40 L12 24 L20 40 L28 40 L18 20 L28 0 L20 0 L12 16 L12 0 Z" fill="#89857f"/>
+            <path d="M10 14 Q18 20 10 28 Q22 24 18 16 Q14 10 10 14Z" fill="#D6A5A5" opacity="0.85"/>
+            <ellipse cx="15" cy="20" rx="5" ry="8" fill="none" stroke="#D6A5A5" stroke-width="1.2" opacity="0.6" transform="rotate(-15 15 20)"/>
+          </g>
+          <text x="38" y="35" font-family="Bebas Neue, Arial Narrow, sans-serif" font-size="34" font-weight="700" letter-spacing="2">
+            <tspan fill="#ffffff">KR</tspan><tspan fill="#D6A5A5">E</tspan><tspan fill="#ffffff">EP</tspan>
+          </text>
+        </svg>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="arrivals.html">Shop</a>
+        <a href="studio.html">Creator Studio</a>
+        <a href="product.html" class="active">Community</a>
+        <a href="index.html#loop">About</a>
+      </nav>
+      <div class="nav-right">
+        <button class="cart-btn">Cart <span class="count">3</span></button>
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-dropdown__header">
+            <span class="mono">Your Cart (3)</span>
+          </div>
+          <ul class="cart-dropdown__items">
+            <li class="cart-dropdown__item">
+              <div class="cart-dropdown__item-info">
+                <span class="cart-dropdown__item-name">Glitch Hoodie</span>
+                <span class="cart-dropdown__item-price">$128</span>
+              </div>
+              <div class="cart-dropdown__qty">
+                <button class="cart-dropdown__qty-btn" data-action="minus">-</button>
+                <span class="cart-dropdown__qty-val">1</span>
+                <button class="cart-dropdown__qty-btn" data-action="plus">+</button>
+              </div>
+            </li>
+            <li class="cart-dropdown__item">
+              <div class="cart-dropdown__item-info">
+                <span class="cart-dropdown__item-name">Static Tee</span>
+                <span class="cart-dropdown__item-price">$64</span>
+              </div>
+              <div class="cart-dropdown__qty">
+                <button class="cart-dropdown__qty-btn" data-action="minus">-</button>
+                <span class="cart-dropdown__qty-val">1</span>
+                <button class="cart-dropdown__qty-btn" data-action="plus">+</button>
+              </div>
+            </li>
+            <li class="cart-dropdown__item">
+              <div class="cart-dropdown__item-info">
+                <span class="cart-dropdown__item-name">Loop Cargo</span>
+                <span class="cart-dropdown__item-price">$142</span>
+              </div>
+              <div class="cart-dropdown__qty">
+                <button class="cart-dropdown__qty-btn" data-action="minus">-</button>
+                <span class="cart-dropdown__qty-val">1</span>
+                <button class="cart-dropdown__qty-btn" data-action="plus">+</button>
+              </div>
+            </li>
+          </ul>
+          <div class="cart-dropdown__footer">
+            <div class="cart-dropdown__subtotal">
+              <span>Subtotal</span>
+              <span class="cart-dropdown__total-val">$334</span>
+            </div>
+            <button class="btn btn-primary btn-block">Checkout</button>
+          </div>
+        </div>
+        <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Royalties -->
+  <main class="wrap">
+
+    <!-- Hero Section -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="mono eyebrow">// Creator Earnings</p>
+          <h2 class="display-l">Earn 12% Royalty</h2>
+        </div>
+      </div>
+
+      <div class="royalty-intro" style="max-width:680px;margin-bottom:3rem;">
+        <p style="font-size:1.125rem;line-height:1.7;color:var(--c-text-secondary);">
+          At KREEP, every creator earns a <strong style="color:var(--c-text-primary)">12% royalty</strong> on every unit sold of their winning design. No hidden fees, no time limits. Your design, your earnings, forever.
+        </p>
+      </div>
+
+      <!-- How It Works -->
+      <div style="margin-bottom:3rem;">
+        <h3 class="display-m" style="margin-bottom:1.5rem;">How It Works</h3>
+        <ol class="loop-steps" style="max-width:540px;">
+          <li><span class="mono">01</span> Submit your design in the Creator Studio</li>
+          <li><span class="mono">02</span> The community votes on submissions</li>
+          <li><span class="mono">03</span> Top-voted designs go to production</li>
+          <li><span class="mono">04</span> You earn 12% on every sale, paid monthly</li>
+        </ol>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" style="margin-bottom:3rem;">
+        <div class="stat"><span class="num">$184K</span><span class="mono muted">Total paid to creators</span></div>
+        <div class="stat"><span class="num">312</span><span class="mono muted">Creators earning</span></div>
+        <div class="stat"><span class="num">$590</span><span class="mono muted">Avg. monthly payout</span></div>
+        <div class="stat"><span class="num">12%</span><span class="mono muted">Royalty rate</span></div>
+      </div>
+
+      <!-- Leaderboard -->
+      <div style="margin-bottom:3rem;">
+        <h3 class="display-m" style="margin-bottom:1.5rem;">Top Creators</h3>
+        <div class="specs" style="max-width:600px;">
+          <div class="row"><span><strong>#1</strong> @noor.k</span><span>$18,240</span></div>
+          <div class="row"><span><strong>#2</strong> @ramy.designs</span><span>$14,680</span></div>
+          <div class="row"><span><strong>#3</strong> @sora.fits</span><span>$12,910</span></div>
+          <div class="row"><span><strong>#4</strong> @deenz</span><span>$9,450</span></div>
+          <div class="row"><span><strong>#5</strong> @lyn.vibe</span><span>$8,220</span></div>
+          <div class="row"><span><strong>#6</strong> @terrain.co</span><span>$7,380</span></div>
+          <div class="row"><span><strong>#7</strong> @void.studio</span><span>$6,190</span></div>
+          <div class="row"><span><strong>#8</strong> @rawcuts</span><span>$5,840</span></div>
+          <div class="row"><span><strong>#9</strong> @neon.lab</span><span>$4,720</span></div>
+          <div class="row"><span><strong>#10</strong> @mteam</span><span>$4,110</span></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="margin-bottom:2rem;">
+        <a href="studio.html" class="btn btn-primary">Start Creating →</a>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <div class="logo">KREEP</div>
+          <p class="muted" style="max-width:34ch">Streetwear built by its community. Co-create, vote, and own the culture.</p>
+        </div>
+        <div>
+          <h5>Shop</h5>
+          <div class="links"><a href="arrivals.html">New Arrivals</a><a href="tops.html">Tops</a><a href="outerwear.html">Outerwear</a><a href="accessories.html">Accessories</a></div>
+        </div>
+        <div>
+          <h5>Community</h5>
+          <div class="links"><a href="studio.html">Creator Studio</a><a href="product.html">Gallery</a><a href="voting.html">Voting</a><a href="royalties.html">Royalties</a></div>
+        </div>
+        <div>
+          <h5>Join the loop</h5>
+          <form class="news" onsubmit="return false">
+            <input type="email" placeholder="your@email.com" aria-label="Email" />
+            <button type="submit">Join</button>
+          </form>
+          <p class="mono muted" style="margin-top:.8rem">// Get early drop access</p>
+        </div>
+      </div>
+      <div class="bottom mono">
+        <span>&copy; 2026 KREEP — ALL RIGHTS RESERVED</span>
+        <span>IG &middot; TT &middot; X &middot; DISCORD</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

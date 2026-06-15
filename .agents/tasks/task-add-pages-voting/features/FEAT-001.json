@@ -1,0 +1,39 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create 6 new HTML pages (royalties.html, voting.html, tops.html, outerwear.html, accessories.html, arrivals.html), implement Vote Up functionality, and update all links across existing pages.",
+  "status": "in_progress",
+  "steps": [
+    "Create arrivals.html - Full 'New Arrivals' page with 12+ product cards including Hoodies, Polo Shirts, and T-shirts. Use the same product-card pattern from index.html#arrivals section. Include size inventory (XS, S, M, L, XL, XXL with some marked soldout). Use the same navbar (with SVG KREEP logo, glitch animation, cart dropdown) and footer as index.html.",
+    "Create tops.html - Shop category page for Tops (T-shirts, Polo Shirts). Include 6+ product cards with size inventory. Products should include T-shirt and Polo Shirt garment types. Same navbar and footer.",
+    "Create outerwear.html - Shop category page for Outerwear (Hoodies). Include 6+ product cards with size inventory. Products should include Hoodie garment types. Same navbar and footer.",
+    "Create accessories.html - Shop category page for Accessories (beanies, bags, etc.). Include 6+ product cards with size inventory. Same navbar and footer.",
+    "Create voting.html - Community voting page showing all community designs that can be voted on. Use the community-card pattern from product.html#community section. Include 8+ community cards with Vote Up buttons (class 'btn btn-ghost btn-block' with text content starting with the up arrow). Same navbar and footer.",
+    "Create royalties.html - Royalties page showing how creators earn 12% royalty. Include: explanation of the royalty system, a leaderboard table of top creators with their earnings, earnings stats/numbers. Same navbar and footer.",
+    "Add Vote Up functionality to js/main.js - When a user clicks a Vote Up button (buttons with text containing 'Vote Up'), increment the vote count displayed in the same card's .vote .row span (the one showing e.g. '2.7k votes'), update the percentage text and the .vote-bar span width accordingly. This must work on both product.html and voting.html.",
+    "Update index.html: Change the 'View all 48' link href from '#' to 'arrivals.html'.",
+    "Update footer links in ALL HTML files (index.html, product.html, studio.html, and all 6 new pages): 'New Arrivals' -> 'arrivals.html', 'Tops' -> 'tops.html', 'Outerwear' -> 'outerwear.html', 'Accessories' -> 'accessories.html', 'Voting' -> 'voting.html', 'Royalties' -> 'royalties.html'."
+  ],
+  "acceptance_criteria": [
+    "arrivals.html exists with 12+ product cards including Hoodies, Polo Shirts, and T-shirts with size inventory",
+    "tops.html exists with product cards for T-shirts and Polo Shirts with size inventory",
+    "outerwear.html exists with product cards for Hoodies with size inventory",
+    "accessories.html exists with product cards for accessories with size inventory",
+    "voting.html exists with 8+ community cards with Vote Up buttons",
+    "royalties.html exists with royalty explanation, leaderboard, and earnings stats",
+    "All new pages have the same navbar with SVG KREEP logo, glitch animation, and cart dropdown",
+    "All new pages have the same footer structure",
+    "All new pages link css/tokens.css, css/styles.css, css/pages.css and js/main.js",
+    "Vote Up buttons increment vote count and update vote-bar width when clicked",
+    "The 'View all 48' link in index.html points to arrivals.html",
+    "All footer links across all pages point to correct destinations (arrivals.html, tops.html, outerwear.html, accessories.html, voting.html, royalties.html)"
+  ],
+  "verification": [
+    "Check that all 6 new HTML files exist in /projects/sandbox/KREEP/",
+    "Grep for 'arrivals.html' in index.html to confirm the View all link is updated",
+    "Grep for Vote Up handling code in js/main.js",
+    "Grep footer links in all HTML files to confirm they point to correct pages"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

@@ -1,0 +1,24 @@
+{
+  "project_type": "Static HTML/CSS/JS streetwear site - no framework, no build step",
+  "language": "HTML, CSS, JavaScript (vanilla)",
+  "build_system": "None - static files only",
+  "test_framework": "None - manual verification via file existence and content checks",
+  "build_command": "N/A - static site, no build",
+  "test_command": "N/A - static site, no tests",
+  "verification_instructions": "Verify all new HTML files exist, contain proper navbar/footer, link correct CSS/JS files. Verify Vote Up buttons have working JS. Verify all footer/nav links point to correct pages.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "No setup required - static HTML files",
+  "environment_constraints": "INTEGRATIONS_ONLY network mode - no external package installs needed since this is a static site. Cannot fetch external resources at build time but Google Fonts links are fine in HTML (loaded by browser).",
+  "contribution_requirements": "Follow existing patterns: same navbar structure with SVG KREEP logo, same footer with updated links, same CSS class naming, same design token usage.",
+  "key_patterns": "Navbar: header.nav with SVG logo, nav-links, cart dropdown. Footer: footer.footer with 4-col grid (brand, Shop links, Community links, newsletter). Product cards: article.product-card with .media, .sku, .meta, .size-row--card. Community cards: article.community-card with .media, .body, .vote section, Vote Up button. CSS uses BEM-like naming with design tokens from tokens.css. Pages link tokens.css, styles.css, pages.css in that order. JS is in a single IIFE in main.js.",
+  "relevant_files": [
+    "index.html",
+    "product.html",
+    "studio.html",
+    "css/tokens.css",
+    "css/styles.css",
+    "css/pages.css",
+    "js/main.js"
+  ],
+  "directory_structure": "Root: HTML pages. css/: tokens.css (design tokens), styles.css (components), pages.css (page layouts). js/: main.js (all interactions)."
+}

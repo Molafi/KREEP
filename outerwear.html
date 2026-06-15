@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KREEP — Outerwear</title>
+  <meta name="description" content="KREEP — Shop community-designed Hoodies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="nav-logo glitch" data-text="KREEP" href="index.html">
+        <svg class="kreep-logo kreep-logo--nav" viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg" aria-label="KREEP">
+          <g class="logo-icon" transform="translate(2,4)">
+            <path d="M4 0 L4 40 L12 40 L12 24 L20 40 L28 40 L18 20 L28 0 L20 0 L12 16 L12 0 Z" fill="#89857f"/>
+            <path d="M10 14 Q18 20 10 28 Q22 24 18 16 Q14 10 10 14Z" fill="#D6A5A5" opacity="0.85"/>
+            <ellipse cx="15" cy="20" rx="5" ry="8" fill="none" stroke="#D6A5A5" stroke-width="1.2" opacity="0.6" transform="rotate(-15 15 20)"/>
+          </g>
+          <text x="38" y="35" font-family="Bebas Neue, Arial Narrow, sans-serif" font-size="34" font-weight="700" letter-spacing="2">
+            <tspan fill="#ffffff">KR</tspan><tspan fill="#D6A5A5">E</tspan><tspan fill="#ffffff">EP</tspan>
+          </text>
+        </svg>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="arrivals.html" class="active">Shop</a>
+        <a href="studio.html">Creator Studio</a>
+        <a href="product.html">Community</a>
+        <a href="index.html#loop">About</a>
+      </nav>
+      <div class="nav-right">
+        <button class="cart-btn">Cart <span class="count">3</span></button>
+        <div class="cart-dropdown" id="cartDropdown">
+          <div class="cart-dropdown__header">
+            <span class="mono">Your Cart (3)</span>
+          </div>
+          <ul class="cart-dropdown__items">
+            <li class="cart-dropdown__item">
+              <div class="cart-dropdown__item-info">
+                <span class="cart-dropdown__item-name">Glitch Hoodie</span>
+                <span class="cart-dropdown__item-price">$128</span>
+              </div>
+              <div class="cart-dropdown__qty">
+                <button class="cart-dropdown__qty-btn" data-action="minus">-</button>
+                <span class="cart-dropdown__qty-val">1</span>
+                <button class="cart-dropdown__qty-btn" data-action="plus">+</button>
+              </div>
+            </li>
+            <li class="cart-dropdown__item">
+              <div class="cart-dropdown__item-info">
+                <span class="cart-dropdown__item-name">Static Tee</span>
+                <span class="cart-dropdown__item-price">$64</span>
+              </div>
+              <div class="cart-dropdown__qty">
+                <button class="cart-dropdown__qty-btn" data-action="minus">-</button>
+                <span class="cart-dropdown__qty-val">1</span>
+                <button class="cart-dropdown__qty-btn" data-action="plus">+</button>
+              </div>
+            </li>
+            <li class="cart-dropdown__item">
+              <div class="cart-dropdown__item-info">
+                <span class="cart-dropdown__item-name">Loop Cargo</span>
+                <span class="cart-dropdown__item-price">$142</span>
+              </div>
+              <div class="cart-dropdown__qty">
+                <button class="cart-dropdown__qty-btn" data-action="minus">-</button>
+                <span class="cart-dropdown__qty-val">1</span>
+                <button class="cart-dropdown__qty-btn" data-action="plus">+</button>
+              </div>
+            </li>
+          </ul>
+          <div class="cart-dropdown__footer">
+            <div class="cart-dropdown__subtotal">
+              <span>Subtotal</span>
+              <span class="cart-dropdown__total-val">$334</span>
+            </div>
+            <button class="btn btn-primary btn-block">Checkout</button>
+          </div>
+        </div>
+        <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Outerwear -->
+  <section class="section" id="outerwear">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="mono eyebrow">// Shop</p>
+          <h2 class="display-l">Outerwear</h2>
+        </div>
+        <span class="mono muted">Hoodies &amp; Layers</span>
+      </div>
+
+      <div class="grid-products">
+
+        <!-- 1 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-pink"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-007</span>
+          <div class="meta"><div><h4>Glitch Hoodie</h4><span class="cat">Hoodie</span></div><span class="price">$128</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size">S</span>
+            <span class="size">M</span>
+            <span class="size soldout">L</span>
+            <span class="size">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-olive"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-052</span>
+          <div class="meta"><div><h4>Loop Hoodie</h4><span class="cat">Hoodie</span></div><span class="price">$134</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size soldout">S</span>
+            <span class="size">M</span>
+            <span class="size">L</span>
+            <span class="size">XL</span>
+            <span class="size soldout">XXL</span>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-mix"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-062</span>
+          <div class="meta"><div><h4>Drip Hoodie</h4><span class="cat">Hoodie</span></div><span class="price">$138</span></div>
+          <div class="size-row size-row--card">
+            <span class="size soldout">XS</span>
+            <span class="size">S</span>
+            <span class="size">M</span>
+            <span class="size soldout">L</span>
+            <span class="size">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-dark"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-073</span>
+          <div class="meta"><div><h4>Stealth Hoodie</h4><span class="cat">Hoodie</span></div><span class="price">$132</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size soldout">S</span>
+            <span class="size">M</span>
+            <span class="size">L</span>
+            <span class="size">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-pink"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-088</span>
+          <div class="meta"><div><h4>Blush Zip Hoodie</h4><span class="cat">Hoodie</span></div><span class="price">$144</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size">S</span>
+            <span class="size">M</span>
+            <span class="size soldout">L</span>
+            <span class="size soldout">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-olive"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-091</span>
+          <div class="meta"><div><h4>Terrain Hoodie</h4><span class="cat">Hoodie</span></div><span class="price">$136</span></div>
+          <div class="size-row size-row--card">
+            <span class="size soldout">XS</span>
+            <span class="size">S</span>
+            <span class="size">M</span>
+            <span class="size">L</span>
+            <span class="size">XL</span>
+            <span class="size soldout">XXL</span>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="product-card">
+          <div class="media">
+            <div class="ph ph-dark"></div>
+            <div class="overlay"><a href="product.html" class="btn btn-pink">Quick Add +</a></div>
+          </div>
+          <span class="sku">SKU·KRP-094</span>
+          <div class="meta"><div><h4>Void Pullover</h4><span class="cat">Hoodie</span></div><span class="price">$126</span></div>
+          <div class="size-row size-row--card">
+            <span class="size">XS</span>
+            <span class="size">S</span>
+            <span class="size soldout">M</span>
+            <span class="size">L</span>
+            <span class="size">XL</span>
+            <span class="size">XXL</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <div class="logo">KREEP</div>
+          <p class="muted" style="max-width:34ch">Streetwear built by its community. Co-create, vote, and own the culture.</p>
+        </div>
+        <div>
+          <h5>Shop</h5>
+          <div class="links"><a href="arrivals.html">New Arrivals</a><a href="tops.html">Tops</a><a href="outerwear.html">Outerwear</a><a href="accessories.html">Accessories</a></div>
+        </div>
+        <div>
+          <h5>Community</h5>
+          <div class="links"><a href="studio.html">Creator Studio</a><a href="product.html">Gallery</a><a href="voting.html">Voting</a><a href="royalties.html">Royalties</a></div>
+        </div>
+        <div>
+          <h5>Join the loop</h5>
+          <form class="news" onsubmit="return false">
+            <input type="email" placeholder="your@email.com" aria-label="Email" />
+            <button type="submit">Join</button>
+          </form>
+          <p class="mono muted" style="margin-top:.8rem">// Get early drop access</p>
+        </div>
+      </div>
+      <div class="bottom mono">
+        <span>&copy; 2026 KREEP — ALL RIGHTS RESERVED</span>
+        <span>IG &middot; TT &middot; X &middot; DISCORD</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
