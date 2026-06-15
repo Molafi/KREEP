@@ -69,12 +69,49 @@
 .stage-text { position: relative; font: var(--t-display-l); font-size: 2.4rem; color: var(--c-white); }
 
 /* ==========================================================================
-   STUDIO — 3 column layout
+   STUDIO — Multi-step wizard
    ========================================================================== */
 .studio { padding: var(--s-5) 0; }
 .studio-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--s-5); flex-wrap: wrap; gap: var(--s-4); }
 .studio-head h1 { font: var(--t-display-m); }
-.studio-layout { display: grid; grid-template-columns: 280px 1fr 320px; gap: var(--s-5); align-items: start; }
+
+/* Step Indicator */
+.step-indicator { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: var(--s-6); padding: var(--s-4) 0; }
+.step-indicator__step { display: flex; align-items: center; gap: var(--s-2); padding: var(--s-3) var(--s-4); border-radius: var(--r-pill); border: 1px solid var(--c-line); background: var(--c-ink-800); transition: all .2s ease; }
+.step-indicator__step.active { border-color: var(--c-dusty-pink); background: var(--c-pink-soft); }
+.step-indicator__step.completed { border-color: var(--c-dusty-pink); background: transparent; }
+.step-indicator__num { width: 28px; height: 28px; border-radius: 50%; background: var(--c-ink-700); display: grid; place-items: center; font: var(--t-label); color: var(--c-olive-gray); font-size: .8rem; transition: all .2s ease; }
+.step-indicator__step.active .step-indicator__num { background: var(--c-dusty-pink); color: var(--c-black); }
+.step-indicator__step.completed .step-indicator__num { background: var(--c-dusty-pink); color: var(--c-black); }
+.step-indicator__label { font: var(--t-label); color: var(--c-olive-gray); text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; }
+.step-indicator__step.active .step-indicator__label { color: var(--c-white); }
+.step-indicator__step.completed .step-indicator__label { color: var(--c-dusty-pink); }
+.step-indicator__line { width: 40px; height: 1px; background: var(--c-line); margin: 0 var(--s-2); }
+.step-indicator__step.completed ~ .step-indicator__line { background: var(--c-dusty-pink); }
+
+/* Wizard Steps */
+.wizard-step { display: none; animation: fadeIn .3s ease; }
+.wizard-step--active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.wizard-step__title { font: var(--t-display-m); font-size: 1.8rem; margin: 0 0 var(--s-3); }
+.wizard-step__desc { color: #cfcdc9; max-width: 56ch; margin-bottom: var(--s-6); }
+.wizard-nav { display: flex; justify-content: space-between; align-items: center; margin-top: var(--s-6); padding-top: var(--s-5); border-top: 1px solid var(--c-line); }
+
+/* Garment Cards (Step 1) */
+.garment-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); }
+.garment-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: var(--s-5); border: 2px solid var(--c-line); border-radius: var(--r-lg); background: var(--c-ink-800); cursor: pointer; transition: border-color .2s, background .2s, transform .15s; }
+.garment-card:hover { border-color: var(--c-olive-gray); transform: translateY(-2px); }
+.garment-card.selected { border-color: var(--c-dusty-pink); background: var(--c-pink-soft); }
+.garment-card__visual { position: relative; width: 100%; aspect-ratio: 3/4; border-radius: var(--r-md); overflow: hidden; margin-bottom: var(--s-4); }
+.garment-card__visual .ph { position: absolute; inset: 0; }
+.garment-card__visual .ph::after { content: ""; }
+.garment-card__icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: rgba(255,255,255,0.3); }
+.garment-card__name { font: var(--t-display-m); font-size: 1.4rem; margin: 0 0 var(--s-2); }
+.garment-card__desc { color: #cfcdc9; font-size: .85rem; line-height: 1.5; margin: 0 0 var(--s-3); }
+.garment-card__price { color: var(--c-dusty-pink); font-size: .9rem; }
+
+/* Studio Layout (Step 2) - 2 column */
+.studio-layout { display: grid; grid-template-columns: 1fr 320px; gap: var(--s-5); align-items: start; }
 .panel { background: var(--c-ink-800); border: 1px solid var(--c-line); border-radius: var(--r-md); padding: var(--s-5); }
 .panel h3 { font: var(--t-label); color: var(--c-olive-gray); letter-spacing: 0.16em; margin: 0 0 var(--s-3); text-transform: uppercase; }
 .panel + .panel, .panel .group + .group { margin-top: var(--s-5); }
@@ -126,6 +163,33 @@
 .royalty-notice strong { color: var(--c-dusty-pink); }
 .studio-actions { display: flex; flex-direction: column; gap: var(--s-3); }
 
+/* Logo Upload Drop Zone */
+.logo-upload__zone { border: 2px dashed var(--c-line); border-radius: var(--r-md); padding: var(--s-5); text-align: center; cursor: pointer; transition: border-color .2s, background .2s; position: relative; }
+.logo-upload__zone:hover, .logo-upload__zone.dragover { border-color: var(--c-dusty-pink); background: var(--c-pink-soft); }
+.logo-upload__icon { font-size: 2rem; color: var(--c-olive-gray); display: block; margin-bottom: var(--s-2); }
+.logo-upload__text { color: #cfcdc9; margin: 0 0 var(--s-2); font-size: .9rem; }
+.logo-upload__hint { color: var(--c-olive-gray); font-size: .75rem; margin: 0; }
+.logo-upload__input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.logo-upload__preview { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-3); border: 1px solid var(--c-line); border-radius: var(--r-md); background: var(--c-ink-700); }
+.logo-upload__preview img { width: 48px; height: 48px; object-fit: contain; border-radius: var(--r-sm); background: var(--c-ink-900); }
+
+/* Draggable Logo on Stage */
+.stage .draggable-logo { position: absolute; cursor: grab; user-select: none; border: 1px dashed transparent; padding: 4px; max-width: 120px; max-height: 120px; z-index: 2; }
+.stage .draggable-logo:active { cursor: grabbing; }
+.stage .draggable-logo.selected { border-color: var(--c-dusty-pink); }
+.stage .draggable-logo img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+
+/* Preview Layout (Step 3) */
+.preview-layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-6); align-items: start; }
+.preview-card { background: var(--c-ink-800); border: 1px solid var(--c-line); border-radius: var(--r-lg); overflow: hidden; }
+.preview-card__visual { position: relative; aspect-ratio: 3/4; display: grid; place-items: center; }
+.preview-card__visual .ph { position: absolute; inset: 0; }
+.preview-card__visual .ph::after { content: ""; }
+.preview-card__text { position: relative; font: var(--t-display-l); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--c-white); }
+.preview-card__info { display: flex; justify-content: space-between; align-items: center; padding: var(--s-4); border-top: 1px solid var(--c-line); }
+.preview-card__badge { font: var(--t-label); color: var(--c-dusty-pink); padding: .3rem .7rem; border-radius: var(--r-pill); border: 1px solid var(--c-pink-line); background: var(--c-pink-soft); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; }
+.preview-summary { display: flex; flex-direction: column; gap: var(--s-5); }
+
 /* ==========================================================================
    PRODUCT — detail + community gallery
    ========================================================================== */
@@ -160,6 +224,8 @@
    ========================================================================== */
 @media (max-width: 1040px) {
   .studio-layout { grid-template-columns: 1fr; }
+  .garment-cards { grid-template-columns: repeat(2, 1fr); }
+  .preview-layout { grid-template-columns: 1fr; }
   .grid-products, .grid-community { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 880px) {
@@ -167,7 +233,9 @@
   .hero-visual { min-height: 420px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(3) { border-left: none; }
+  .step-indicator__label { display: none; }
 }
 @media (max-width: 560px) {
   .grid-products, .grid-community, .font-grid { grid-template-columns: 1fr; }
+  .garment-cards { grid-template-columns: 1fr; }
 }

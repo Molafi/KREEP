@@ -218,7 +218,7 @@
     }
   });
 
-  // Cart quantity buttons
+  /* ---- Cart quantity buttons --------------------------------------------- */
   document.querySelectorAll(".cart-dropdown__qty-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -230,4 +230,202 @@
       valEl.textContent = val;
     });
   });
+
+  /* ====================================================================
+     STUDIO: Multi-step wizard
+     ==================================================================== */
+  const stepIndicator = document.getElementById("stepIndicator");
+  const step1 = document.getElementById("step1");
+  const step2 = document.getElementById("step2");
+  const step3 = document.getElementById("step3");
+
+  if (step1 && step2 && step3) {
+    let currentStep = 1;
+    let selectedGarment = null;
+    const garmentData = {
+      hoodie: { name: "Hoodie", weight: "380gsm", price: 88 },
+      tshirt: { name: "T-Shirt", weight: "220gsm", price: 54 },
+      polo:   { name: "Polo Shirt", weight: "260gsm", price: 72 }
+    };
+
+    const steps = [step1, step2, step3];
+    const indicators = stepIndicator.querySelectorAll(".step-indicator__step");
+
+    function showStep(num) {
+      currentStep = num;
+      steps.forEach((s, i) => {
+        s.classList.toggle("wizard-step--active", i === num - 1);
+      });
+      indicators.forEach((ind, i) => {
+        ind.classList.remove("active", "completed");
+        if (i < num - 1) ind.classList.add("completed");
+        else if (i === num - 1) ind.classList.add("active");
+      });
+    }
+
+    /* -- Garment card selection -- */
+    const garmentCards = document.getElementById("garmentCards");
+    const btnNext1 = document.getElementById("btnNext1");
+
+    if (garmentCards && btnNext1) {
+      garmentCards.addEventListener("click", (e) => {
+        const card = e.target.closest(".garment-card");
+        if (!card) return;
+        garmentCards.querySelectorAll(".garment-card").forEach((c) => c.classList.remove("selected"));
+        card.classList.add("selected");
+        selectedGarment = card.dataset.garment;
+        btnNext1.disabled = false;
+      });
+
+      btnNext1.addEventListener("click", () => {
+        if (!selectedGarment) return;
+        showStep(2);
+      });
+    }
+
+    /* -- Step navigation buttons -- */
+    const btnBack2 = document.getElementById("btnBack2");
+    const btnNext2 = document.getElementById("btnNext2");
+    const btnBack3 = document.getElementById("btnBack3");
+
+    if (btnBack2) btnBack2.addEventListener("click", () => showStep(1));
+    if (btnNext2) btnNext2.addEventListener("click", () => {
+      updatePreview();
+      showStep(3);
+    });
+    if (btnBack3) btnBack3.addEventListener("click", () => showStep(2));
+
+    /* -- Update preview in Step 3 -- */
+    function updatePreview() {
+      const previewText = document.getElementById("previewText");
+      const previewGarment = document.getElementById("previewGarment");
+      const priceBaseName = document.getElementById("priceBaseName");
+      const priceBaseVal = document.getElementById("priceBaseVal");
+      const priceTotalVal = document.getElementById("priceTotalVal");
+      const orderPrice = document.getElementById("orderPrice");
+
+      const txtInput = document.getElementById("txt");
+      if (previewText && txtInput) {
+        const textVal = txtInput.value || "VISION";
+        previewText.textContent = textVal;
+        previewText.setAttribute("data-text", textVal);
+      }
+
+      if (selectedGarment && garmentData[selectedGarment]) {
+        const g = garmentData[selectedGarment];
+        if (previewGarment) previewGarment.textContent = g.name;
+        if (priceBaseName) priceBaseName.textContent = "Base \u2014 " + g.name + " (" + g.weight + ")";
+        if (priceBaseVal) priceBaseVal.textContent = "$" + g.price.toFixed(2);
+        const total = g.price + 18 + 6;
+        if (priceTotalVal) priceTotalVal.textContent = "$" + total;
+        if (orderPrice) orderPrice.textContent = "$" + total;
+      }
+    }
+
+    /* -- Logo upload + drag on stage -- */
+    const logoDropZone = document.getElementById("logoDropZone");
+    const logoFileInput = document.getElementById("logoFileInput");
+    const logoPreview = document.getElementById("logoPreview");
+    const logoPreviewImg = document.getElementById("logoPreviewImg");
+    const logoRemoveBtn = document.getElementById("logoRemoveBtn");
+    const stageEl = document.getElementById("stage");
+
+    let dragLogoEl = null;
+
+    function handleLogoFile(file) {
+      if (!file || !file.type.startsWith("image/")) return;
+      const reader = new FileReader();
+      reader.onload = function (ev) {
+        // Show preview thumbnail
+        if (logoPreview && logoPreviewImg) {
+          logoPreviewImg.src = ev.target.result;
+          logoPreview.style.display = "flex";
+          logoDropZone.style.display = "none";
+        }
+        // Add draggable logo to stage
+        addLogoToStage(ev.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function addLogoToStage(src) {
+      // Remove existing logo if any
+      if (dragLogoEl && dragLogoEl.parentElement) {
+        dragLogoEl.parentElement.removeChild(dragLogoEl);
+      }
+      dragLogoEl = document.createElement("div");
+      dragLogoEl.className = "draggable-logo selected";
+      dragLogoEl.id = "dragLogo";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Uploaded logo";
+      dragLogoEl.appendChild(img);
+      dragLogoEl.style.position = "absolute";
+      dragLogoEl.style.left = "20%";
+      dragLogoEl.style.top = "20%";
+      if (stageEl) stageEl.appendChild(dragLogoEl);
+
+      // Make it draggable
+      let logoDragging = false, lox = 0, loy = 0;
+      const logoStart = (x, y) => {
+        logoDragging = true;
+        dragLogoEl.classList.add("selected");
+        const r = dragLogoEl.getBoundingClientRect();
+        lox = x - r.left; loy = y - r.top;
+      };
+      const logoMove = (x, y) => {
+        if (!logoDragging) return;
+        const s = stageEl.getBoundingClientRect();
+        let nx = x - s.left - lox;
+        let ny = y - s.top - loy;
+        nx = Math.max(0, Math.min(nx, s.width - dragLogoEl.offsetWidth));
+        ny = Math.max(0, Math.min(ny, s.height - dragLogoEl.offsetHeight));
+        dragLogoEl.style.left = nx + "px";
+        dragLogoEl.style.top = ny + "px";
+      };
+      const logoEnd = () => { logoDragging = false; };
+
+      dragLogoEl.addEventListener("mousedown", (e) => { e.preventDefault(); logoStart(e.clientX, e.clientY); });
+      window.addEventListener("mousemove", (e) => logoMove(e.clientX, e.clientY));
+      window.addEventListener("mouseup", logoEnd);
+      dragLogoEl.addEventListener("touchstart", (e) => logoStart(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+      window.addEventListener("touchmove", (e) => { if (logoDragging) logoMove(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+      window.addEventListener("touchend", logoEnd);
+    }
+
+    if (logoFileInput) {
+      logoFileInput.addEventListener("change", (e) => {
+        if (e.target.files && e.target.files[0]) handleLogoFile(e.target.files[0]);
+      });
+    }
+
+    if (logoDropZone) {
+      logoDropZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        logoDropZone.classList.add("dragover");
+      });
+      logoDropZone.addEventListener("dragleave", () => {
+        logoDropZone.classList.remove("dragover");
+      });
+      logoDropZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        logoDropZone.classList.remove("dragover");
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          handleLogoFile(e.dataTransfer.files[0]);
+        }
+      });
+    }
+
+    if (logoRemoveBtn) {
+      logoRemoveBtn.addEventListener("click", () => {
+        if (dragLogoEl && dragLogoEl.parentElement) {
+          dragLogoEl.parentElement.removeChild(dragLogoEl);
+          dragLogoEl = null;
+        }
+        if (logoPreview) logoPreview.style.display = "none";
+        if (logoDropZone) logoDropZone.style.display = "";
+        if (logoFileInput) logoFileInput.value = "";
+      });
+    }
+  }
 })();

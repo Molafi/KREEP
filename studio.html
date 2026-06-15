@@ -99,145 +99,214 @@
       <p class="mono muted">Autosaved · Draft #KRP-DRAFT-0091</p>
     </div>
 
-    <div class="studio-layout">
+    <!-- ===== Step Indicator ===== -->
+    <div class="step-indicator" id="stepIndicator">
+      <div class="step-indicator__step active" data-step="1">
+        <span class="step-indicator__num">1</span>
+        <span class="step-indicator__label">Choose Garment</span>
+      </div>
+      <div class="step-indicator__line"></div>
+      <div class="step-indicator__step" data-step="2">
+        <span class="step-indicator__num">2</span>
+        <span class="step-indicator__label">Customize</span>
+      </div>
+      <div class="step-indicator__line"></div>
+      <div class="step-indicator__step" data-step="3">
+        <span class="step-indicator__num">3</span>
+        <span class="step-indicator__label">Preview &amp; Submit</span>
+      </div>
+    </div>
 
-      <!-- ===== LEFT PANEL — garment / color / fabric / size / layers ===== -->
-      <aside class="panel">
-        <div class="group">
-          <h3>Garment</h3>
-          <div class="chip-row">
-            <button class="design-chip active">Hoodie</button>
-            <button class="design-chip">Tee</button>
-            <button class="design-chip">Crewneck</button>
-            <button class="design-chip">Cargo</button>
-            <button class="design-chip">Cap</button>
+    <!-- ===== STEP 1: Choose Garment ===== -->
+    <section class="wizard-step wizard-step--active" id="step1">
+      <h2 class="wizard-step__title">Choose Your Garment</h2>
+      <p class="wizard-step__desc">Select the base for your custom design. Each garment is crafted with premium materials.</p>
+
+      <div class="garment-cards" id="garmentCards">
+        <button class="garment-card" data-garment="hoodie" data-price="88">
+          <div class="garment-card__visual">
+            <div class="ph ph-pink"></div>
+            <span class="garment-card__icon">&#9783;</span>
+          </div>
+          <h3 class="garment-card__name">Hoodie</h3>
+          <p class="garment-card__desc">Heavy cotton 380gsm. Oversized fit with double-lined hood and kangaroo pocket.</p>
+          <span class="garment-card__price mono">$88.00</span>
+        </button>
+
+        <button class="garment-card" data-garment="tshirt" data-price="54">
+          <div class="garment-card__visual">
+            <div class="ph ph-olive"></div>
+            <span class="garment-card__icon">&#9783;</span>
+          </div>
+          <h3 class="garment-card__name">T-Shirt</h3>
+          <p class="garment-card__desc">Organic cotton 220gsm. Relaxed box cut with reinforced collar ribbing.</p>
+          <span class="garment-card__price mono">$54.00</span>
+        </button>
+
+        <button class="garment-card" data-garment="polo" data-price="72">
+          <div class="garment-card__visual">
+            <div class="ph ph-dark"></div>
+            <span class="garment-card__icon">&#9783;</span>
+          </div>
+          <h3 class="garment-card__name">Polo Shirt</h3>
+          <p class="garment-card__desc">Pique knit 260gsm. Modern slim fit with contrast collar and two-button placket.</p>
+          <span class="garment-card__price mono">$72.00</span>
+        </button>
+      </div>
+
+      <div class="wizard-nav">
+        <span></span>
+        <button class="btn btn-primary" id="btnNext1" disabled>Next: Customize &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2: Customize ===== -->
+    <section class="wizard-step" id="step2">
+      <div class="studio-layout">
+
+        <!-- ===== LEFT: Canvas ===== -->
+        <section class="canvas studio-layout__canvas">
+          <div class="toolbar">
+            <button class="tool active" title="Select">&#11034;</button>
+            <button class="tool" title="Add text">T</button>
+            <button class="tool" title="Upload graphic">&#10514;</button>
+            <button class="tool" title="Glitch FX" id="glitchTool">&#9889;</button>
+            <button class="tool" title="Align">&#8801;</button>
+            <span class="spacer"></span>
+            <button class="tool" title="Undo">&#8634;</button>
+            <button class="tool" title="Redo">&#8635;</button>
+            <button class="tool" title="Zoom">&#8853;</button>
+          </div>
+
+          <div class="stage" id="stage">
+            <div class="ph ph-pink"></div>
+            <div class="draggable selected" id="dragText"><span class="glitch" data-text="VISION">VISION</span></div>
+          </div>
+
+          <div class="angles">
+            <button class="angle active" title="Front"><div class="ph ph-pink"></div></button>
+            <button class="angle" title="Back"><div class="ph ph-olive"></div></button>
+            <button class="angle" title="Left"><div class="ph ph-dark"></div></button>
+            <button class="angle" title="Detail"><div class="ph ph-mix"></div></button>
+          </div>
+        </section>
+
+        <!-- ===== RIGHT: Editor panel ===== -->
+        <aside class="panel studio-layout__editor">
+          <div class="group">
+            <h3>Text</h3>
+            <div class="field">
+              <label for="txt">Your text</label>
+              <input type="text" id="txt" value="VISION" />
+            </div>
+          </div>
+
+          <div class="group">
+            <h3>Font</h3>
+            <div class="font-grid">
+              <button class="font-opt active" style="font-family:var(--font-display)">Bebas<small>Display</small></button>
+              <button class="font-opt" style="font-family:var(--font-body)">Inter<small>Body</small></button>
+              <button class="font-opt" style="font-family:var(--font-mono)">Mono<small>Tag</small></button>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3>Color</h3>
+            <div class="chip-row">
+              <button class="design-chip active"><span class="swatch" style="background:var(--c-dusty-pink)"></span>Dusty Pink</button>
+              <button class="design-chip"><span class="swatch" style="background:var(--c-olive-gray)"></span>Olive Gray</button>
+              <button class="design-chip"><span class="swatch" style="background:#000;border-color:#444"></span>Black</button>
+              <button class="design-chip"><span class="swatch" style="background:#fff"></span>White</button>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3>Size &amp; Spacing</h3>
+            <div class="field">
+              <label>Font size</label>
+              <div class="range-row"><input type="range" min="24" max="120" value="72" id="rngSize" /><span class="val" id="valSize">72px</span></div>
+            </div>
+            <div class="field">
+              <label>Letter spacing</label>
+              <div class="range-row"><input type="range" min="-4" max="20" value="2" id="rngSpace" /><span class="val" id="valSpace">2px</span></div>
+            </div>
+            <div class="field">
+              <label>Rotation</label>
+              <div class="range-row"><input type="range" min="-45" max="45" value="0" id="rngRot" /><span class="val" id="valRot">0&deg;</span></div>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3>Upload Logo</h3>
+            <div class="logo-upload" id="logoUpload">
+              <div class="logo-upload__zone" id="logoDropZone">
+                <span class="logo-upload__icon">&#8679;</span>
+                <p class="logo-upload__text">Drop your logo here or click to browse</p>
+                <p class="logo-upload__hint mono">PNG, JPG, SVG &middot; Max 5MB</p>
+                <input type="file" id="logoFileInput" accept="image/*" class="logo-upload__input" />
+              </div>
+              <div class="logo-upload__preview" id="logoPreview" style="display:none;">
+                <img id="logoPreviewImg" alt="Uploaded logo preview" />
+                <button class="btn btn-ghost btn-sm" id="logoRemoveBtn">Remove</button>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+      <div class="wizard-nav">
+        <button class="btn btn-ghost" id="btnBack2">&larr; Back</button>
+        <button class="btn btn-primary" id="btnNext2">Next: Preview &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ===== STEP 3: Preview & Submit ===== -->
+    <section class="wizard-step" id="step3">
+      <h2 class="wizard-step__title">Preview &amp; Submit</h2>
+      <p class="wizard-step__desc">Review your design before submitting to the community or ordering for yourself.</p>
+
+      <div class="preview-layout">
+        <div class="preview-card">
+          <div class="preview-card__visual">
+            <div class="ph ph-pink"></div>
+            <div class="preview-card__text glitch" id="previewText" data-text="VISION">VISION</div>
+          </div>
+          <div class="preview-card__info">
+            <span class="mono" id="previewGarment">Hoodie</span>
+            <span class="preview-card__badge">Custom Design</span>
           </div>
         </div>
 
-        <div class="group">
-          <h3>Color</h3>
-          <div class="chip-row">
-            <button class="design-chip active"><span class="swatch" style="background:var(--c-dusty-pink)"></span>Dusty Pink</button>
-            <button class="design-chip"><span class="swatch" style="background:var(--c-olive-gray)"></span>Olive Gray</button>
-            <button class="design-chip"><span class="swatch" style="background:#000;border-color:#444"></span>Black</button>
-            <button class="design-chip"><span class="swatch" style="background:#fff"></span>White</button>
+        <div class="preview-summary">
+          <div class="group">
+            <h3>Price Summary</h3>
+            <div class="price-summary">
+              <div class="line"><span id="priceBaseName">Base — Hoodie (380gsm)</span><span id="priceBaseVal">$88.00</span></div>
+              <div class="line"><span>Custom print</span><span>$18.00</span></div>
+              <div class="line"><span>Glitch FX layer</span><span>$6.00</span></div>
+              <div class="line total"><span>Total</span><span id="priceTotalVal">$112</span></div>
+            </div>
           </div>
-        </div>
 
-        <div class="group">
-          <h3>Fabric</h3>
-          <div class="chip-row">
-            <button class="design-chip active">Heavy Cotton 380gsm</button>
-            <button class="design-chip">French Terry</button>
-            <button class="design-chip">Organic Blend</button>
-          </div>
-        </div>
-
-        <div class="group">
-          <h3>Size</h3>
-          <div class="chip-row">
-            <button class="design-chip">XS</button>
-            <button class="design-chip">S</button>
-            <button class="design-chip active">M</button>
-            <button class="design-chip">L</button>
-            <button class="design-chip">XL</button>
-            <button class="design-chip">XXL</button>
-          </div>
-        </div>
-
-        <div class="group">
-          <h3>Layers</h3>
-          <ul class="layers">
-            <li class="layer active"><span>◆ Text — “VISION”</span><span class="mono">👁</span></li>
-            <li class="layer"><span>▦ Base Garment</span><span class="mono">👁</span></li>
-            <li class="layer"><span>✦ Graphic — Glitch K</span><span class="mono">👁</span></li>
-          </ul>
-        </div>
-      </aside>
-
-      <!-- ===== CENTER CANVAS — stage / toolbar / multi-angle ===== -->
-      <section class="canvas">
-        <div class="toolbar">
-          <button class="tool active" title="Select">⬚</button>
-          <button class="tool" title="Add text">T</button>
-          <button class="tool" title="Upload graphic">⤒</button>
-          <button class="tool" title="Glitch FX" id="glitchTool">⚡</button>
-          <button class="tool" title="Align">≡</button>
-          <span class="spacer"></span>
-          <button class="tool" title="Undo">↺</button>
-          <button class="tool" title="Redo">↻</button>
-          <button class="tool" title="Zoom">⊕</button>
-        </div>
-
-        <div class="stage" id="stage">
-          <div class="ph ph-pink"></div>
-          <div class="draggable selected" id="dragText"><span class="glitch" data-text="VISION">VISION</span></div>
-        </div>
-
-        <div class="angles">
-          <button class="angle active" title="Front"><div class="ph ph-pink"></div></button>
-          <button class="angle" title="Back"><div class="ph ph-olive"></div></button>
-          <button class="angle" title="Left"><div class="ph ph-dark"></div></button>
-          <button class="angle" title="Detail"><div class="ph ph-mix"></div></button>
-        </div>
-      </section>
-
-      <!-- ===== RIGHT PANEL — text editor / fonts / sliders / price / royalty ===== -->
-      <aside class="panel">
-        <div class="group">
-          <h3>Text</h3>
-          <div class="field">
-            <label for="txt">Your text</label>
-            <input type="text" id="txt" value="VISION" />
-          </div>
-        </div>
-
-        <div class="group">
-          <h3>Font</h3>
-          <div class="font-grid">
-            <button class="font-opt active" style="font-family:var(--font-display)">Bebas<small>Display</small></button>
-            <button class="font-opt" style="font-family:var(--font-body)">Inter<small>Body</small></button>
-            <button class="font-opt" style="font-family:var(--font-mono)">Mono<small>Tag</small></button>
-          </div>
-        </div>
-
-        <div class="group">
-          <h3>Size &amp; Spacing</h3>
-          <div class="field">
-            <label>Font size</label>
-            <div class="range-row"><input type="range" min="24" max="120" value="72" id="rngSize" /><span class="val" id="valSize">72px</span></div>
-          </div>
-          <div class="field">
-            <label>Letter spacing</label>
-            <div class="range-row"><input type="range" min="-4" max="20" value="2" id="rngSpace" /><span class="val" id="valSpace">2px</span></div>
-          </div>
-          <div class="field">
-            <label>Rotation</label>
-            <div class="range-row"><input type="range" min="-45" max="45" value="0" id="rngRot" /><span class="val" id="valRot">0°</span></div>
-          </div>
-        </div>
-
-        <div class="group">
-          <h3>Price Summary</h3>
-          <div class="price-summary">
-            <div class="line"><span>Base — Hoodie (380gsm)</span><span>$88.00</span></div>
-            <div class="line"><span>Custom print</span><span>$18.00</span></div>
-            <div class="line"><span>Glitch FX layer</span><span>$6.00</span></div>
-            <div class="line total"><span>Total</span><span>$112</span></div>
-          </div>
           <div class="royalty-notice">
-            <span>⚑</span>
+            <span>&#9873;</span>
             <p style="margin:0">If your design wins the community vote and drops, you earn a <strong>12% royalty</strong> on every unit sold. Designs stay credited to you forever.</p>
           </div>
-        </div>
 
-        <div class="studio-actions">
-          <button class="btn btn-primary btn-block">Submit to Community Vote →</button>
-          <button class="btn btn-ghost btn-block">Order for Myself · $112</button>
+          <div class="studio-actions">
+            <button class="btn btn-primary btn-block">Submit to Community Vote &rarr;</button>
+            <button class="btn btn-ghost btn-block" id="btnOrderSelf">Order for Myself &middot; <span id="orderPrice">$112</span></button>
+          </div>
         </div>
-      </aside>
+      </div>
 
-    </div>
+      <div class="wizard-nav">
+        <button class="btn btn-ghost" id="btnBack3">&larr; Back to Customize</button>
+        <span></span>
+      </div>
+    </section>
+
   </main>
 
   <script src="js/main.js"></script>
