@@ -1,0 +1,34 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Modernize homepage: add SVG KREEP logo with glitch animation in navbar and hero, implement cart dropdown overlay, make New Arrivals section functional with size/inventory display, and wire up 'Submit yours' to studio.html",
+  "status": "completed",
+  "steps": [
+    "Create an inline SVG logo for KREEP in the navbar (.nav-logo in all 3 HTML files) and in the hero section of index.html. The SVG should depict: a gray 'K' shape with dusty-pink (#D6A5A5) swirl accent, and 'KREEP' text with the 'E' in dusty pink (#D6A5A5). Apply the existing .glitch class and data-text attribute to the SVG wrapper so the glitch animation fires on it. The SVG should be compact (around 40px height in navbar, larger in hero).",
+    "Replace the text-only nav-logo ('KREE<span>P</span>') in index.html, studio.html, and product.html with the new SVG logo wrapped in the glitch animation container. Keep the nav-logo link to index.html.",
+    "Add a cart dropdown overlay component: when the .cart-btn is clicked, show a dropdown panel positioned below the cart button (position: absolute, z-index above content). The dropdown should show sample cart items (Glitch Hoodie $128, Static Tee $64, Loop Cargo $142), quantity controls, a subtotal, and a 'Checkout' button. Clicking outside or clicking the cart button again closes it. Add the CSS for this dropdown in css/styles.css and the JS toggle logic in js/main.js.",
+    "Update the New Arrivals section in index.html: add size/inventory badges below each product card's meta section. Each card should show available sizes (e.g., 'L', 'S', 'XS', 'XL', 'XXL') and mark some as 'out of inventory' (crossed out/grayed). Use the existing .size and .size.soldout classes from pages.css. Give each card different inventory patterns so it looks realistic.",
+    "Ensure the 'Submit yours' button on product.html (in the #community section-head) has href='studio.html' - it already does, just verify.",
+    "Modernize the homepage hero section: add a subtle animated gradient background that shifts colors slowly (dusty pink to dark), add a larger visual presence for the KREEP logo in the hero with the glitch effect active. Keep the existing hero structure (copy + floating cards) but enhance visual polish.",
+    "Add CSS for the new cart dropdown in css/styles.css. Style it with the existing design tokens (ink-800 background, line borders, dusty-pink accents, pill border-radius on buttons).",
+    "Ensure all existing interactions still work: glitch bursts on .glitch elements, animated counters, chip selection, PDP gallery, studio sliders/drag, mobile nav burger."
+  ],
+  "acceptance_criteria": [
+    "SVG KREEP logo appears in the navbar of all 3 pages and in the hero of index.html with working glitch animation",
+    "Cart button click opens a dropdown overlay with items, quantities, subtotal, and checkout button; clicking outside or toggling closes it",
+    "New Arrivals section shows 4 product cards each with size availability chips (some marked soldout/out of inventory)",
+    "Submit yours button on product.html navigates to studio.html",
+    "Hero section has enhanced visual design with animated gradient background",
+    "All existing JS interactions remain functional (counters, drag, sliders, ticker, chip selection, glitch bursts)"
+  ],
+  "verification": [
+    "Open index.html - verify SVG logo in navbar with glitch effect, hero has logo and animated gradient",
+    "Click cart button - verify dropdown appears with items and closes on second click or outside click",
+    "Scroll to New Arrivals - verify each product card shows size chips with inventory status",
+    "Open product.html - click 'Submit yours' button and verify it navigates to studio.html",
+    "Open studio.html - verify SVG logo in navbar, existing sliders and drag still work",
+    "Verify glitch animation fires periodically on logo elements (every ~2.6s as per existing JS)"
+  ],
+  "blocked_reason": null,
+  "findings": "All acceptance criteria satisfied. SVG logo with glitch class applied to .nav-logo wrapper on all 3 pages + hero. Cart dropdown uses .open class toggled via JS on cart-btn click with outside-click-to-close. Size chips added to all 4 New Arrivals cards using existing .size/.size.soldout classes. Hero gradient uses @keyframes heroGradient with background-size 400%. Submit yours button already linked to studio.html (confirmed). No build/test tooling exists for this static site - verification is visual/browser-based only."
+}
