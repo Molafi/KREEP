@@ -219,6 +219,29 @@
   });
 
   /* ---- Cart quantity buttons --------------------------------------------- */
+  function updateCartSubtotal(dropdown) {
+    const items = dropdown.querySelectorAll(".cart-dropdown__item");
+    let subtotal = 0;
+    let totalQty = 0;
+    items.forEach((item) => {
+      const priceEl = item.querySelector(".cart-dropdown__item-price");
+      const qtyEl = item.querySelector(".cart-dropdown__qty-val");
+      if (!priceEl || !qtyEl) return;
+      const price = parseFloat(priceEl.textContent.replace("$", "")) || 0;
+      const qty = parseInt(qtyEl.textContent, 10) || 1;
+      subtotal += price * qty;
+      totalQty += qty;
+    });
+    const totalEl = dropdown.querySelector(".cart-dropdown__total-val");
+    if (totalEl) totalEl.textContent = "$" + subtotal;
+    // Update the cart count in the header
+    const navRight = dropdown.closest(".nav-right");
+    if (navRight) {
+      const countEl = navRight.querySelector(".cart-btn .count");
+      if (countEl) countEl.textContent = totalQty;
+    }
+  }
+
   document.querySelectorAll(".cart-dropdown__qty-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -228,6 +251,9 @@
       if (btn.dataset.action === "plus") val++;
       else if (btn.dataset.action === "minus" && val > 1) val--;
       valEl.textContent = val;
+      // Recalculate subtotal
+      const dropdown = btn.closest(".cart-dropdown");
+      if (dropdown) updateCartSubtotal(dropdown);
     });
   });
 
@@ -331,9 +357,14 @@
     const stageEl = document.getElementById("stage");
 
     let dragLogoEl = null;
+    let logoAbortController = null;
 
     function handleLogoFile(file) {
       if (!file || !file.type.startsWith("image/")) return;
+      if (file.size > 5 * 1024 * 1024) {
+        alert("File is too large. Please upload an image under 5MB.");
+        return;
+      }
       const reader = new FileReader();
       reader.onload = function (ev) {
         // Show preview thumbnail
@@ -349,10 +380,16 @@
     }
 
     function addLogoToStage(src) {
-      // Remove existing logo if any
+      // Remove existing logo and clean up old listeners
       if (dragLogoEl && dragLogoEl.parentElement) {
         dragLogoEl.parentElement.removeChild(dragLogoEl);
       }
+      if (logoAbortController) {
+        logoAbortController.abort();
+      }
+      logoAbortController = new AbortController();
+      var signal = logoAbortController.signal;
+
       dragLogoEl = document.createElement("div");
       dragLogoEl.className = "draggable-logo selected";
       dragLogoEl.id = "dragLogo";
@@ -385,12 +422,12 @@
       };
       const logoEnd = () => { logoDragging = false; };
 
-      dragLogoEl.addEventListener("mousedown", (e) => { e.preventDefault(); logoStart(e.clientX, e.clientY); });
-      window.addEventListener("mousemove", (e) => logoMove(e.clientX, e.clientY));
-      window.addEventListener("mouseup", logoEnd);
-      dragLogoEl.addEventListener("touchstart", (e) => logoStart(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
-      window.addEventListener("touchmove", (e) => { if (logoDragging) logoMove(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
-      window.addEventListener("touchend", logoEnd);
+      dragLogoEl.addEventListener("mousedown", (e) => { e.preventDefault(); logoStart(e.clientX, e.clientY); }, { signal: signal });
+      window.addEventListener("mousemove", (e) => logoMove(e.clientX, e.clientY), { signal: signal });
+      window.addEventListener("mouseup", logoEnd, { signal: signal });
+      dragLogoEl.addEventListener("touchstart", (e) => logoStart(e.touches[0].clientX, e.touches[0].clientY), { passive: true, signal: signal });
+      window.addEventListener("touchmove", (e) => { if (logoDragging) logoMove(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true, signal: signal });
+      window.addEventListener("touchend", logoEnd, { signal: signal });
     }
 
     if (logoFileInput) {
@@ -418,6 +455,10 @@
 
     if (logoRemoveBtn) {
       logoRemoveBtn.addEventListener("click", () => {
+        if (logoAbortController) {
+          logoAbortController.abort();
+          logoAbortController = null;
+        }
         if (dragLogoEl && dragLogoEl.parentElement) {
           dragLogoEl.parentElement.removeChild(dragLogoEl);
           dragLogoEl = null;
